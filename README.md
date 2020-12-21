@@ -30,7 +30,7 @@ Some basic notes on Pwst-it®
 - Recycle bin for notes you want off the board but not to the ether just yet.
 
 ![Some rich content notes on Pwst-it](https://storage.googleapis.com/olaviinha/github/pwst-it/richcontent-settings-bin2.jpg)
-Some notes rich in content. Settings bar and recycle bin opened.
+Some notes rich in content. Settings bar and Recycle Bin opened.
 
 ![X-ray vision](https://storage.googleapis.com/olaviinha/github/pwst-it/xray.jpg)
 X-ray vision.
