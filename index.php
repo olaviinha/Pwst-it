@@ -305,7 +305,7 @@
     <title>Pwst-it®</title>    
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet/less" type="text/css" href="np.less" />
+    <link rel="stylesheet/less" type="text/css" href="pwst-it.less" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js"></script>
     <link rel="stylesheet" href="resources/simplebar.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
@@ -477,7 +477,7 @@
         <div class="old"></div>
     </div>
 
-    <script src="np.js"></script>
+    <script src="pwst-it.js"></script>
 <?php
     } else {    
 
