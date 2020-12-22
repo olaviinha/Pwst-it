@@ -107,8 +107,8 @@ This lists what keyboard shortcuts are available, and what are the default keys.
 a note by e.g. leaving it behind some larger notes.
 - Zoom out (default: A). Zoom out to view the entire board and all notes in it.
 - Zoom in (default: Q). Zooms back in to the view where you zoomed out from. _Note_ that clicking anywhere on the screen is probably more convenient, as it will zoom in to the point where you clicked.
-- Create note (default: N). Create new note wherever your cursor is located. Double click (and right-click if enabled) do the exact same thing.
+- Create note (default: D). Create new note wherever your cursor is located. Double-clicking on the background does the exact same thing. However, this shortcut key enables you to create new notes directly on top of old notes too, as double clicking an old note will normally edit the double-clicked note.
 - Settings (default: A). Open/close the settings bar.
-- Full screen (default: D). Open/exit full screen mode.
+- Full screen (default: Z). Open/exit full screen mode.
 - Cancel (default: Esc). Closes/cancels different things on screen, depending on what's happening.
 
