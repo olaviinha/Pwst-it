@@ -99,6 +99,7 @@ fullScreen: 'z'                     // Toggle full screen.
 - To restore a note, click the Undo icon over that note in the Recycle Bin. Note will be restored to where it last was on the board. If you have newer notes on where that note used to be, the restored note will be behind them.
 - To perma-delete a note (gone forever) click the trash can icon over that note on Recycle Bin.
 - To empty Recycle Bin, you need to empty the `pwst-it/recyclebin` folder on your server.
+- Background images available in the Settings bar are automatically fetched from directory `/settings/backgrounds`. Simply remove/add images to that directory, and the menu will update accordingly.
 
 ## Keyboard shortcut bindings
 This lists what keyboard shortcuts are available, and what are the default keys.
