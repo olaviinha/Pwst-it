@@ -113,3 +113,7 @@ a note by e.g. leaving it behind some larger notes.
 - Full screen (default: Z). Open/exit full screen mode.
 - Cancel (default: Esc). Closes/cancels different things on screen, depending on what's happening.
 
+## General acknowledgement
+- This was developed entirely for my personal purposes, and I don't intend to extend it outside of that scope.
+- It has been developed and tested only in Google Chrome.
+- Very likely has a number of bugs, which I aim to fix as they come along.
