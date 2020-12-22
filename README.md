@@ -18,7 +18,7 @@ Some basic notes on Pwst-it®
 - Background, font (few built-in) and some other settings are changeable in the fly as you go.
 - Keyboard shortcuts!
 - Password-protected. Cookie keeps you logged in forever. You should note, however, that the security of this 
-  webapp is not exactly state of the art. If your board is located on a public server and you make notes about 
+  webapp is not exactly state of the art. If your board is located on a public server, public URL, and you make notes about 
   national security or corporate secrets, it is recommended that you review and up the security game of this app.
 - Log out (close active sessions on other devices) remotely.
 - Saves everything in flat files (and some settings in cookies); no database required.
