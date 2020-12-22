@@ -45,6 +45,7 @@ Zoomed out to overview the entire board.
 - Font Awesome
 - jQuery
 - jQuery UI
+- Less.js
 - [jquery.cookie](https://github.com/carhartl/jquery-cookie), courtesy of Klaus Hartl.
 
 #### ...included in in the repository:
