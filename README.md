@@ -33,7 +33,7 @@ Some basic notes on Pwst-it®
 Some notes rich in content. Settings bar and Recycle Bin opened.
 
 ![X-ray vision](https://storage.googleapis.com/olaviinha/github/pwst-it/xray.jpg)
-X-ray vision.
+Holding down the X-ray key to see through notes.
 
 ![Overview](https://storage.googleapis.com/olaviinha/github/pwst-it/overview.jpg)
 Overview of board.
