@@ -23,7 +23,7 @@ Some basic notes on Pwst-it®
 - Log out (close active sessions on other devices) remotely.
 - Saves everything in flat files (and some settings in cookies); no database required.
 - Supports some basic text formattings in markdown language.
-- Auto-embed youtube, soundcloud, video and audio URLs.
+- Auto-embed youtube, soundcloud, video and audio URLs (like Facebook in the good old days).
 - Auto-hyperlink website URLs to human-readable form using the page <title>.
 - Paste rich text and images.
 - Want plain text notes instead? No problem, just set all the rich content settings to `false`.
