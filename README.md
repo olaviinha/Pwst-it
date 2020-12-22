@@ -1,6 +1,6 @@
 # Pwst-it® Personal Notes Board
 
-Do you just hate how some pencil necks decide how to categorize, organize and sort out your NOTES neatly making sure you never find any of them? Are you dying to get your own, organized chaos online? Look no further, for Pwst-it® Personal Notes Board is here to help. 
+Do you just hate how some pencil necks decide how to categorize, organize and sort out your NOTES neatly making sure you never find any of them? Are you dying for a notes app that supports your own, organized chaos? Look no further, for Pwst-it® Personal Notes Board is you answer. 
 
 Pwst-it® has a large board where you can stick small (or big) sticky notes of different colours in. It is designed for desktop use, as the board user interface is not very convenient at all for small screens. There is, however, a very stripped down basic user interface for mobile devices to add and read notes.
 
