@@ -9,9 +9,9 @@ Some basic notes on Pwst-it®
 
 ## Some features
 
-- Large draggable board. May be many times larger than your viewport. Board position is instantly saved upon 
+- Large draggable board. May be many times larger than your viewport. Board position is instantly saved (on device) upon 
   dragging.
-- All notes are freely draggable and resizable. Positions and sizes are instantly saved upon dragging or 
+- All notes are freely draggable and resizable. Positions and sizes are instantly saved (on server) upon dragging or 
   resizing.
 - Quickly zoom out to view the entire board and back in wherever you click.
 - Quick x-ray vision to see if you've e.g. accidentally hidden small notes behind some bigger ones.
