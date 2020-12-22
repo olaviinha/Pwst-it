@@ -102,7 +102,7 @@ fullScreen: 'z'                     // Toggle full screen.
 - Background images available in the Settings bar are automatically fetched from directory `/settings/backgrounds`. Simply remove/add images to that directory, and the menu will update accordingly.
 
 ## Keyboard shortcut bindings
-This lists what keyboard shortcuts are available, and what are the default keys.
+This lists what keyboard shortcuts are available, and what are the default keys. Default keys are mapped around the WASD keys, but you can change them to whatever you like.
 - Hold to drag (default: Shift). Hold down while dragging the board to enable grabbing from anything, including notes (which otherwise are draggable by themselves). This is mostly for situations where your board is so full of notes you have too little background visible to grab on to.
 - X-ray vision (default: X). Hold down to see through all notes. This is mostly for situations where you may have lost
 a note by e.g. leaving it behind some larger notes.
