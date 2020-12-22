@@ -105,8 +105,8 @@ This lists what keyboard shortcuts are available, and what are the default keys.
 - Hold to drag (default: Shift). Hold down while dragging the board to enable grabbing from anything, including notes (which otherwise are draggable by themselves). This is mostly for situations where your board is so full of notes you have too little background visible to grab on to.
 - X-ray vision (default: X). Hold down to see through all notes. This is mostly for situations where you may have lost
 a note by e.g. leaving it behind some larger notes.
-- Zoom out (default: A). Zoom out to view the entire board and all notes in it.
-- Zoom in (default: Q). Zooms back in to the view where you zoomed out from. _Note_ that clicking anywhere on the screen is probably more convenient, as it will zoom in to the point where you clicked.
+- Zoom out (default: S). Zoom out to view the entire board and all notes in it.
+- Zoom in (default: W). Zooms back in to the view where you zoomed out from. _Note_ that clicking anywhere on the screen is probably more convenient, as it will zoom in to the point where you clicked.
 - Create note (default: D). Create new note wherever your cursor is located. Double-clicking on the background does the exact same thing. However, this shortcut key enables you to create new notes directly on top of old notes too, as double clicking an old note will normally edit the double-clicked note.
 - Settings (default: A). Open/close the settings bar.
 - Full screen (default: Z). Open/exit full screen mode.
