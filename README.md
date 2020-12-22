@@ -106,7 +106,7 @@ This lists what keyboard shortcuts are available, and what are the default keys.
 - X-ray vision (default: X). Hold down to see through all notes. This is mostly for situations where you may have lost
 a note by e.g. leaving it behind some larger notes.
 - Zoom out (default: A). Zoom out to view the entire board and all notes in it.
-- Zoom in (default: Q). Zooms back in from the view where you zoomed out from. Note that clicking anywhere on the screen is probably more convenient, as it will zoom in to the point where you clicked.
+- Zoom in (default: Q). Zooms back in to the view where you zoomed out from. _Note_ that clicking anywhere on the screen is probably more convenient, as it will zoom in to the point where you clicked.
 - Create note (default: N). Create new note wherever your cursor is located. Double click (and right-click if enabled) do the exact same thing.
 - Settings (default: A). Open/close the settings bar.
 - Full screen (default: D). Open/exit full screen mode.
