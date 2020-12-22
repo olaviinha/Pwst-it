@@ -63,7 +63,7 @@ this will probably do:
 cd /wherever-it-is/located/pwst-it/
 sudo chown -R www-data:www-data notes settings sessions recyclebin
 ```
-6. Make sure your HTTP Daemon does not provide _Index of /pwst-it/notes_ type of views of these directories, if you care about such a thing. Alternatively you may also configure these directories (set in `index.php`) to be located outside where Pwst-it's `index.php` is located, so that the directories are not publicly accessible. PHP will have access to them despite of their location on the server.
+6. Make sure your HTTP Daemon does not provide _Index of /pwst-it/notes_ type of views of these directories, if you care about such a thing. Alternatively you may also configure these directories (set in `index.php`) to be located outside where Pwst-it's `index.php` is located, so that the directories are not publicly accessible. PHP will have access to them in spite of their location on the server.
 7. Done.
 
 ## How to use
