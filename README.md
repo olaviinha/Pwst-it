@@ -63,7 +63,8 @@ this will probably do:
 cd /wherever-it-is/located/pwst-it/
 sudo chown -R www-data:www-data notes settings sessions recyclebin
 ```
-6. Done.
+6. Make sure your HTTP Daemon does not provide _Index of /pwst-it/notes_ type of views of these directories, if you care about such a thing.
+7. Done.
 
 ## How to use
 
