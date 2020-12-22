@@ -40,7 +40,6 @@ Zoomed out to overview the entire board.
 
 ## Prerequisites
 - PHP
-- PHP cURL
 
 #### ...included in the solution from CDNs:
 - Font Awesome
