@@ -86,7 +86,7 @@ createNew: 'd',                     // Create new note wherever your cursor is.
 fullScreen: 'z'                     // Toggle full screen.
 ```
 - Double-click anywhere on board to create a new note on that point.
-- Double click on a note to edit it or delete it from the board.
+- Double-click on a note to edit it or delete it from the board.
 - There is a faint gear icon in top right corner. Click to open Settings bar.
 - All settings changed in the Settings bar are saved on **device** (browser cookies).
 - To drag the board in your viewport, grab anywhere on the site background -or- hold down shift key while dragging (see keyboard bindings). 
@@ -108,12 +108,12 @@ This lists what keyboard shortcuts are available, and what are the default keys.
 a note by e.g. leaving it behind some larger notes.
 - Zoom out (default: S). Zoom out to view the entire board and all notes in it.
 - Zoom in (default: W). Zooms back in to the view where you zoomed out from. _Note_ that clicking anywhere on the screen is probably more convenient, as it will zoom in to the point where you clicked.
-- Create note (default: D). Create new note wherever your cursor is located. Double-clicking on the background does the exact same thing. However, this shortcut key enables you to create new notes directly on top of old notes too, as double clicking an old note will normally edit the double-clicked note.
+- Create note (default: D). Create new note wherever your cursor is located. Double-clicking on the background does the exact same thing. However, this shortcut key enables you to create new notes directly on top of old notes too, as double-clicking an old note will normally edit the double-clicked note.
 - Settings (default: A). Open/close the settings bar.
 - Full screen (default: Z). Open/exit full screen mode.
 - Cancel (default: Esc). Closes/cancels different things on screen, depending on what's happening.
 
 ## General acknowledgement
-- This was developed entirely for my personal purposes, and I don't intend to extend it outside of that scope.
+- This was developed solely for my personal purpose. It functions under that scope, and I don't intend to extend it outside of that scope.
 - It has been developed and tested only in Google Chrome.
-- Very likely has a number of bugs, which I aim to fix as they come along.
+- Very likely has a number of bugs (at least in the rich-content-pasting functionality) which I aim to fix as they come along.
