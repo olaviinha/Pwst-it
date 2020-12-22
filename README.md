@@ -58,11 +58,7 @@ Zoomed out to overview the entire board.
 3. Edit `pwst-it.js` in a text editor, read through and change any of the settings.
 4. Upload all files to a web server.
 5. Grant PHP write permissions to subdirectories `notes`, `settings` `sessions` and `recyclebin`. On Debian based apache2 setups
-this will probably do:
-```
-cd /wherever-it-is/located/pwst-it/
-sudo chown -R www-data:www-data notes settings sessions recyclebin
-```
+this will probably do: `cd /wherever-it-is/located/pwst-it/ && sudo chown -R www-data:www-data notes settings sessions recyclebin`. Alternatively you may set some more general write permissions to these directories and their files e.g. using your FTP client.
 6. Make sure your HTTP Daemon does not provide _Index of /pwst-it/notes_ type of views of these directories, if you care about such a thing. Alternatively you may also configure these directories (set in `index.php`) to be located outside where Pwst-it's `index.php` is located, so that the directories are not publicly accessible. PHP will have access to them in spite of their location on the server.
 7. Done.
 
