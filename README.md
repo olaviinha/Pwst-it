@@ -27,7 +27,7 @@ Some basic notes on Pwst-it®
 - Auto-hyperlink website URLs to human-readable form using the page <title>.
 - Paste rich text and images.
 - Want plain text notes instead? No problem, just set all the rich content settings to `false`.
-- Recycle bin for notes you want off the board but not to the ether just yet.
+- All deleted notes go to Recycle Bin, where they can still be read and restored from, until restored or perma-deleted.
 
 ![Some rich content notes on Pwst-it](https://storage.googleapis.com/olaviinha/github/pwst-it/richcontent-settings-bin2.jpg)
 Some notes rich in content. Settings bar and Recycle Bin opened.
