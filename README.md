@@ -36,7 +36,7 @@ Some notes rich in content. Settings bar and Recycle Bin opened.
 Holding down the X-ray key to see through notes.
 
 ![Overview](https://storage.googleapis.com/olaviinha/github/pwst-it/overview.jpg)
-Overview of board.
+Zoomed out to overview the entire board.
 
 ## Prerequisites
 - PHP
