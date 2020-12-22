@@ -64,7 +64,7 @@ this will probably do: `cd /wherever-it-is/located/pwst-it/ && sudo chown -R www
 
 ## How to use
 
-There are no tips or other descriptive texts in the UI. You should read this through.
+There are no tips or other descriptive texts in the UI. You should just read this through instead. _Note_ that there are also keyboard shortcuts to some of these functions, described in the next section.
 
 - There is a bunch of settings in the beginning of `pwst-it.js`, some of which may actually interest you, such as:
 ```
