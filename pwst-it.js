@@ -1,6 +1,3 @@
-// Pwst-it Personal Notes Board
-// (C) 2020 O. Inha
-
 // ----------------------------------------------------------------------------------
 // Settings
 // ----------------------------------------------------------------------------------
@@ -67,6 +64,7 @@ var npel = {
     disabler: '.disabler',              // Disabler overlay
     bin: '.recycle-bin',                // Recycle bin
     mobile: '.mobile',                  // Container for mobile view
+    embedElements: 'embed-image, embed-audio, embed-video, embed-youtube, embed-soundcloud',
     nullel: false
 }
 
@@ -224,9 +222,14 @@ function resetNoteUX(noteel){
             }
         }).mouseup(function(e){
             clearTimeout(saveNoteTask);
+            if($(this).hasClass('new_note')){
+                var mode = 'new_note';
+            } else  {
+                var mode = 'edit_note';
+            }
             if(!editing){
                 saveNoteTask = setTimeout(function(){
-                    save_note(that);
+                    save_note(that, mode, false);
                 }, settings.saveDelay);
             }
 
@@ -421,12 +424,24 @@ function resetUX(el){
 // End of Reset UX
 // ----------------------------------------------------------------------------------
 
+function checkColor(el){
+    if($.cookie(npcookie.defcolor)=='lastused'){
+        $('span.'+$.cookie(npcookie.lastcolor)).click();
+        el.find('input.'+$.cookie(npcookie.lastcolor)).prop('checked', true);
+    } else {
+        $('span.'+$.cookie(npcookie.defcolor)).click();
+        el.find('input.'+$.cookie(npcookie.defcolor)).prop('checked', true);
+    }
+}
+
 function enableEdit(el){
     unbindKeyboard();
     clearTimeout(saveNoteTask);
     $(npel.note).find('.read').removeClass('dpn');
     $(npel.note).find('.edit').addClass('dpn');
     el.find('.read, .edit').toggleClass('dpn');
+    el.find('.color-selection span.'+el.data('color')).click();
+    el.find('.color-selection input.'+el.data('color')).prop('checked', true);
     el.toggleClass('edit_note');
     el.find('.note-content').height( 150 + parseInt(el.css('height')) - note.height );
     el.find('.content-input').focus();
@@ -453,11 +468,7 @@ function create_note(el){
     });
     $(npel.new).removeClass('dpn');
     $(npel.disabler).removeClass('dpn');
-    if($.cookie(npcookie.defcolor)=='lastused'){
-        $('.'+$.cookie(npcookie.lastcolor)).click();
-    } else {
-        $('.'+$.cookie(npcookie.defcolor)).click();
-    }
+    checkColor($(npel.new));
     $(npel.new).find('.content-input').focus();
     unbindKeyboard();
     newVisible = true;
@@ -488,7 +499,7 @@ function show_message(msg){
 // ----------------------------------------------------------------------------------
 // Save note
 // ----------------------------------------------------------------------------------
-function save_note(el, action='new_note'){
+function save_note(el, action='new_note', printBack=true){
     clearTimeout(saveNoteTask);
     if(!el.hasClass(npel.new.replace('.',''))){
         action = 'update_note';
@@ -557,11 +568,14 @@ function zoomOut(hard=false){
     originalTop = $(npel.board).css('top');
     originalLeft = $(npel.board).css('left');
     if(hard==false){
+        $(npel.embedElements).find('img, video, audio, iframe').css('visibility', 'hidden');
         $(npel.board).animate({
             'zoom': zoomFactor,
             'top': 0,
             'left': 0
-        }, settings.speed);
+        }, settings.speed, function(){
+            $(npel.embedElements).find('img, video, audio, iframe').css('visibility', 'visible');
+        });
     } else {
         $(npel.board).css({
             'zoom': zoomFactor,
@@ -579,11 +593,14 @@ function zoomOut(hard=false){
 }
 
 function zoomIn(top, left){
+    $(npel.embedElements).find('img, video, audio, iframe').css('visibility', 'hidden');
     $(npel.board).animate({
         'zoom': 1,
         'top': top,
         'left': left
-    }, settings.speed);
+    }, settings.speed, function(){
+        $(npel.embedElements).find('img, video, audio, iframe').css('visibility', 'visible');
+    });
     $(npel.board).draggable('enable');
     $(npel.board).data('dblclick', 1);
     changeCursor($(npel.disabler), '');
@@ -906,9 +923,23 @@ window.addEventListener('paste', function(e){
                         if(imageDataBase64){
                             contentType = 'image';
                             id = imageDataBase64;
-                            iu = '';   
-                            var pasteImge = '<rich-paste><img src="' + imageDataBase64 + '"></rich-paste';
-                            pasteHtmlAtCaret(pasteImage);
+                            iu = '';
+                            $.ajax({
+                                type: 'POST',
+                                url: '.',
+                                async: false,
+                                data: {
+                                    'action': 'upload',
+                                    'data': imageDataBase64
+                                },
+                                fail: function(resp){
+                                    console.log('Failed to upload image', resp);
+                                },
+                                success: function(resp){
+                                    var pasteImage = '<embed-image><img src="' + resp + '"></embed-image>';
+                                    pasteHtmlAtCaret(pasteImage);
+                                }
+                            });
                         }
                     });
                     isImage = true;
