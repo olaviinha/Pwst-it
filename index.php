@@ -34,7 +34,7 @@
     function list_sessions() {
         global $sdir;
         $sessions = array_diff(scandir($sdir), array('..', '.'));
-        $sessions = preg_grep('/^([^.])/', scandir($sessions));
+        $sessions = preg_grep('/^([^.])/' $sessions);
         if(count($sessions) > 0){
             foreach($sessions as $session){
                 $nj = json_decode(file_get_contents("${sdir}/${session}"));
@@ -52,8 +52,8 @@
 
     function list_backgrounds() {
         global $bgsdir;
-        $bgs = array_diff(scandir($bgsdir), array('..', '.', '.gitignore'));
-        $bgs = preg_grep('/^([^.])/', scandir($bgs));
+        $bgs = array_diff(scandir($bgsdir), array('..', '.'));
+        $bgs = preg_grep('/^([^.])/' $bgs);
         if(count($bgs) > 0){
             foreach($bgs as $bg){
                 $bgName = ucfirst(str_replace('-', ' ', explode('.', $bg)[0]));
