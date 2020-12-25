@@ -34,6 +34,7 @@
     function list_sessions() {
         global $sdir;
         $sessions = array_diff(scandir($sdir), array('..', '.'));
+        $sessions = preg_grep('/^([^.])/', scandir($sessions));
         if(count($sessions) > 0){
             foreach($sessions as $session){
                 $nj = json_decode(file_get_contents("${sdir}/${session}"));
@@ -51,7 +52,8 @@
 
     function list_backgrounds() {
         global $bgsdir;
-        $bgs = array_diff(scandir($bgsdir), array('..', '.'));
+        $bgs = array_diff(scandir($bgsdir), array('..', '.', '.gitignore'));
+        $bgs = preg_grep('/^([^.])/', scandir($bgs));
         if(count($bgs) > 0){
             foreach($bgs as $bg){
                 $bgName = ucfirst(str_replace('-', ' ', explode('.', $bg)[0]));
@@ -64,6 +66,7 @@
 
     function list_notes($dir) {
         $notes = array_diff(scandir($dir), array('..', '.'));
+        $notes = preg_grep('/^([^.])/', $notes);
         $notes = array_reverse($notes);
         if(count($notes) > 0){
             foreach($notes as $note){
@@ -96,11 +99,11 @@
             $note_html = $note_txt;
             $note_html = str_replace("\n\n", "<div class=\"line-break\"></div>", $note_html);
             $note_html = str_replace("\n", "<br class=\"br\">", $note_html);
-            echo "<div class=\"note noted read bg-${note_color}\" id=\"${note_id}\" style=\"left:${note_left}px;top:${note_top}px;width:${note_width}px;height:${note_height}px;z-index:${note_zindex};\">";
+            echo "<div class=\"note noted read bg-${note_color}\" data-color=\"${note_color}\" id=\"${note_id}\" style=\"left:${note_left}px;top:${note_top}px;width:${note_width}px;height:${note_height}px;z-index:${note_zindex};\">";
             echo "<div class=\"edit dpn color-selection\">";
             foreach($colors as $color){
                 echo "<label class=\"color-container\">";
-                echo "<input type=\"radio\" name=\"color\" value=\"${color}\">";
+                echo "<input type=\"radio\" name=\"color\" value=\"${color}\" class=\"${color}\">";
                 echo "<span class=\"${color} checkmark\" data-color=\"${color}\"></span>";
                 echo "</label>";
             }
@@ -260,9 +263,12 @@
             $printHtml = false;
         } else if (isset($_POST['action']) && $_POST['action'] == 'upload') {
             $img_id = date("YmdHis");
+            $uid = uniqid();
             $extension = explode('/', mime_content_type($_POST['data']))[1];
             $data = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $_POST['data']));
-            file_put_contents("${mdir}/${id}_${img_id}.${extension}", $data);
+            file_put_contents("${mdir}/${img_id}_${uid}.${extension}", $data);
+            echo "${mdir}/${img_id}_${uid}.${extension}";
+            $printHtml = false;
         } else if (isset($_POST['action']) && $_POST['action'] == 'title') {
             $urlTitle = get_title($_POST['url']);
             echo $urlTitle;
@@ -305,7 +311,7 @@
     <title>Pwst-it®</title>    
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet/less" type="text/css" href="pwst-it.less" />
+    <link rel="stylesheet/less" type="text/css" href="np.less" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js"></script>
     <link rel="stylesheet" href="resources/simplebar.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
@@ -334,14 +340,6 @@
 <?php
         if($printPage){
 ?>
-    <!-- <div class="templates">
-        <div class="closed note">
-            <div class="content"></div>
-        </div>
-        <div class="open note">
-            <div class="content"></div>
-        </div>
-    </div> -->
 
     <!-- board -->
     <div class="board-container">
@@ -353,7 +351,7 @@
                     <?php 
                         foreach($colors as $color){
                             echo "<label class=\"color-container\">";
-                            echo "<input type=\"radio\" name=\"color\" value=\"${color}\">";
+                            echo "<input type=\"radio\" name=\"color\" value=\"${color}\" class=\"${color}\">";
                             echo "<span class=\"${color} checkmark\" data-color=\"${color}\"></span>";
                             echo "</label>";
                         }
@@ -466,7 +464,7 @@
                 <?php 
                     foreach($colors as $color){
                         echo "<label class=\"color-container\">";
-                        echo "<input type=\"radio\" name=\"color\" value=\"${color}\">";
+                        echo "<input type=\"radio\" name=\"color\" value=\"${color}\" class=\"${color}\">";
                         echo "<span class=\"${color} checkmark\" data-color=\"${color}\"></span>";
                         echo "</label>";
                     }
@@ -477,7 +475,7 @@
         <div class="old"></div>
     </div>
 
-    <script src="pwst-it.js"></script>
+    <script src="np.js"></script>
 <?php
     } else {    
 
