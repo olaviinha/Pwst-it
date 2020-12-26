@@ -789,6 +789,9 @@ function ironNoteContent(el) {
         el.addClass('includes-code');
     }
     el.find('.content').html(mdhtml + '<br><br>');
+    el.find('.content .embed-link').each(function(){
+        $(this).attr('target', '_blank');
+    });
     el.find('.content embed-youtube').each(function(){
         that = $(this);
         var eurl = $(this).html();
