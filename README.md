@@ -17,7 +17,7 @@ Some basic notes on Pwst-it®
 - Quick x-ray vision to see if you've e.g. accidentally hidden small notes behind some bigger ones.
 - Background, font (few built-in) and some other settings are changeable in the fly as you go.
 - Keyboard shortcuts!
-- Custom buttons to open any predefined URLs in an iframe on a sidebar. In case you want quick access to things like [when your bus leaves](https://github.com/olaviinha/HSL-Stop-Departures) or [how your stocks are doing](https://github.com/olaviinha/FinnStonks).
+- Custom buttons to open any URLs in an iframe on a sidebar. In case you want quick access to things like [when your bus leaves](https://github.com/olaviinha/HSL-Stop-Departures) or [how your stocks are doing](https://github.com/olaviinha/FinnStonks).
 - Password-protected. Cookie keeps you logged in forever. You should note, however, that the security of this 
   webapp is not exactly state of the art. If your board is located on a public server, public URL, and you make notes about 
   national security or corporate secrets, it is recommended that you review and up the security game of this app.
