@@ -26,7 +26,7 @@ var settings = {
     allowRichPaste: true,               // Allow pasting rich text.
     allowImagePaste: true,              // Allow pasting images but not rich text.
     allowEmbed: true,                   // Allow turning pasted links to embeds and human-readable hyperlinks.
-    sidebar: false,                      // Display sidebar buttons.
+    sidebar: true,                      // Display sidebar buttons.
 
     // Experimental settings that will likely fuck up your board.
     // You should not touch these unless your up for some development work.
@@ -1033,7 +1033,6 @@ function havoc(){
         var defaultFrameWidth = 600;
         var opn = false;
 
-
         $(sbContainer).append('<div class="'+sbWrapper+' custom-buttons"></div>');
         $(sbContainer).append('<iframe class="'+sbWrapper+'-iframe sidebar" src="" allowtransparency="true"></iframe>');
 
@@ -1048,7 +1047,7 @@ function havoc(){
             toggleIcon($(this).find('.fa'));
             if(opn==false){
                 $('.'+sbWrapper+'-iframe').css({
-                    'top': $('.'+sbWrapper).height()+'px',
+                    'top': $('.'+sbWrapper).height()+parseInt($('.'+sbWrapper).css('padding-top'))*2+'px',
                     'left': -Math.abs($(this).data('width'))+'px',
                     'width': $(this).data('width')+'px'
                 });
