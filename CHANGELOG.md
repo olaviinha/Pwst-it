@@ -2,7 +2,7 @@
 
 ## 2020-01-14 v0.2.0
 ### Improvements:
-- Sidebar: add custom buttons to top-left that open predefined URLs in a sidebar.
+- Sidebar: add custom buttons to top-left that open any URLs in a sidebar for quick access.
 
 ## 2020-12-25 v0.1.1
 ### Bug fixes:
