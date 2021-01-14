@@ -1,5 +1,9 @@
 # Changelog
 
+## 2020-01-14 v0.2.0
+### Improvements:
+- Sidebar: add custom buttons to top-left that open predefined URLs in a sidebar.
+
 ## 2020-12-25 v0.1.1
 ### Bug fixes:
 - Hide embeds during zooming, due to zooming/animations getting laggy with content heavy on multimedia embeds.
