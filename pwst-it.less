@@ -26,6 +26,7 @@
 @light-yellow: #ffa;
 @code-bg: @black;
 @dark: #555;
+@embed-bg: #ddd;
 
 @base-size: 26px;
 @base-line-height: @base-size;
@@ -34,6 +35,9 @@
 
 @stroke-color: rgba(255,255,255,.6);
 @shadow-color: rgba(255,255,255,1);
+
+@common-transition: all .25s ease-in-out;
+@fast-transition: all .2s ease-in-out;
 
 .annie-use-your-telescope {
     font-family:  'Annie Use Your Telescope', cursive;
@@ -84,8 +88,6 @@
 .base-color-blue {
     color: #22a;
 }
-
-@common-transition: all .3s ease-in-out;
 
 * {
     box-sizing: border-box;
@@ -192,7 +194,7 @@ button {
                 background: rgba(250,250,250,.2);
                 color: #000;
                 outline: 3px dashed rgba(250,60,60,1);
-                img, iframe {
+                img, iframe, rich-paste * {
                     opacity: .35;
                 }
             }
@@ -211,15 +213,28 @@ button {
                         max-width: 100%;
                     }
                 }
-                embed-link, embed-youtube, embed-audio, embed-video {
+                embed-image, embed-link, embed-youtube, embed-audio, embed-video {
+                    display: block;
                     width: 100%;
                     max-width: 100%;
+                    background: @embed-bg;
                     img, iframe, audio, video {
+                        display: block;
                         width: 100%;
+                    }
+                }
+                embed-youtube {
+                    iframe {
+                        position: absolute;
+                        width: calc(100% - 40px);
+                        height: calc(100% - 40px);
                     }
                 }
                 .line-break {
                     height: calc(@base-line-height * 0.5);
+                }
+                pre {
+                    overflow-x: scroll;
                 }
                 pre, code {
                     cursor: text;
@@ -264,6 +279,7 @@ button {
             min-height: 150px;
             position: relative;
             display: block;
+            padding: 5px 0;
             &::selection{
                 background: #000;
                 color: #fff;
@@ -336,8 +352,8 @@ button {
                 content: "";
                 position: absolute;
                 display: none;   
-                top: 9px;
-                left: 9px;
+                top: 7px;
+                left: 7px;
                 width: 8px;
                 height: 8px;
                 border-radius: 50%;
@@ -644,21 +660,20 @@ div.login {
         padding: 10px;
         margin: 0 10px 10px 0;
         min-height: 60px;
-        embed-link, embed-youtube, embed-audio, embed-video {
-            width: 100%;
+        embed-link, embed-youtube, embed-audio, embed-video, rich-paste {
             max-width: 100%;
-            img, iframe, audio, video {
-                width: 100%;
-            }
+        }
+        img, iframe, audio, video {
+            max-width: 100%;
         }
         button {
-            padding: 8px 12px;
+            // padding: 8px 12px;
             border: 0;
             border-radius: 0;
             color: #fff;
             position: absolute;
-            top: 10px;
-            right: 30px;
+            top: 0;
+            right: 0;
             &.perma-delete {
                 background: @pink;
                 &:hover {
@@ -667,7 +682,7 @@ div.login {
             }
             &.restore {
                 background: @blue;
-                right: 70px;
+                right: 34px;
                 &:hover {
                     background: darken(@blue, 8%);
                 }
@@ -675,6 +690,43 @@ div.login {
         }
     }
 }
+
+// Sidebar START
+.custom-buttons {
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    font-size: 30px;
+    .icon {
+        display: inline-block;
+        width: auto;
+        transition: @fast-transition;
+        opacity: .2;
+        position: relative;
+        top: 14px;
+        left: 20px;
+        margin-right: 20px;
+        cursor: pointer;
+        .effect-txt;
+        &.fullopa {
+            opacity: 1;
+        }
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -600px; 
+    width: 600px; 
+    height: 100%; 
+    background: transparent; 
+    border: 0; 
+    z-index: 9000000;
+}
+// Sidebar END
 
 .mobile {
     width: 100%;
@@ -707,7 +759,7 @@ div.login {
         clear: both;
     }
     .saira-condensed;
-    .settings, .templates, .board-container, .top-right, .recyclebin {
+    .settings, .templates, .board-container, .top-right, .recyclebin, .sidebar {
         display: none;
     }
     .note {
@@ -719,3 +771,5 @@ div.login {
         }
     }
 }
+
+
