@@ -26,6 +26,7 @@ var settings = {
     allowRichPaste: true,               // Allow pasting rich text.
     allowImagePaste: true,              // Allow pasting images but not rich text.
     allowEmbed: true,                   // Allow turning pasted links to embeds and human-readable hyperlinks.
+    sidebar: true,                      // Display sidebar buttons.
 
     // Experimental settings that will likely fuck up your board.
     // You should not touch these unless your up for some development work.
@@ -42,8 +43,29 @@ var keys = {
     zoomOut: 's',                       // Zoom out to overview.
     settings: 'a',                      // Open settings bar.
     createNew: 'd',                     // Create new note wherever your cursor is.
-    fullScreen: 'z'                     // Toggle full screen.
+    fullScreen: 'z',                    // Toggle full screen.
+
+    sidebarItem1: '1',                  // Sidebar item #1
+    sidebarItem2: '2',                  // etc.
+    sidebarItem3: '3',
+    sidebarItem4: '4',
+    sidebarItem5: '5',
+    sidebarItem6: '6',
 }
+
+// Sidebar items. Button icon, iframe url, iframe width
+var sidebar = [
+    {   
+        icon: '<i class="fa fa-bus"></i>', 
+        url: '/hsl',
+        width: 600
+    }, {   
+        icon: '<i class="fa fa-line-chart"></i>', 
+        url: '/finnstonks',
+        width: 600
+    }
+]
+
 
 // Elements
 var npel = {
@@ -64,6 +86,7 @@ var npel = {
     disabler: '.disabler',              // Disabler overlay
     bin: '.recycle-bin',                // Recycle bin
     mobile: '.mobile',                  // Container for mobile view
+    sidebar: '.sidebar-wrapper',        // Sidebar
     embedElements: 'embed-image, embed-audio, embed-video, embed-youtube, embed-soundcloud',
     nullel: false
 }
@@ -615,7 +638,6 @@ function openSettings(){
     soRight = $(npel.settingsContent).css('right');
     $(npel.settingsContent).animate({'top': 0, 'right': '-20px'}, settings.speed);
     $(npel.settingsIcon).addClass('fullopa');
-    $(npel.settingsIcon).find('.fa').toggleClass('dpn');
     toggleIcon($(npel.settingsIcon).find('.fa'));
     settingsVisible = true;
 }
@@ -623,7 +645,6 @@ function openSettings(){
 function closeSettings(){
     $(npel.settingsContent).animate({'top': soTop, 'right': soRight}, settings.speed);
     $(npel.settingsIcon).removeClass('fullopa');
-    $(npel.settingsIcon).find('.fa').toggleClass('dpn');
     toggleIcon($(npel.settingsIcon).find('.fa'));
     if(binVisible){
         $(npel.bin).animate({
@@ -681,6 +702,12 @@ function bindKeyboard(){
         if(e.key == keys.xray){
             $(npel.note).removeClass('outlined');
         }
+        if(settings.sidebar == true && e.key == keys.sidebarItem1){ $(npel.sidebar).find('.item:nth-child(1)').click(); }
+        if(settings.sidebar == true && e.key == keys.sidebarItem2){ $(npel.sidebar).find('.item:nth-child(2)').click(); }
+        if(settings.sidebar == true && e.key == keys.sidebarItem3){ $(npel.sidebar).find('.item:nth-child(3)').click(); }
+        if(settings.sidebar == true && e.key == keys.sidebarItem4){ $(npel.sidebar).find('.item:nth-child(4)').click(); }
+        if(settings.sidebar == true && e.key == keys.sidebarItem5){ $(npel.sidebar).find('.item:nth-child(5)').click(); }
+        if(settings.sidebar == true && e.key == keys.sidebarItem6){ $(npel.sidebar).find('.item:nth-child(6)').click(); }
     });
 }
 
@@ -710,6 +737,7 @@ function unbindKeyboard(){
 }
 
 function toggleIcon(el) {
+    el.toggleClass('dpn');
     var angle = 0;
     $({deg: -90}).animate({deg: angle}, {
         duration: settings.speed/2,
@@ -995,9 +1023,56 @@ window.addEventListener('paste', function(e){
 // -------------------------------------------------------------------------------------
 // Initialize
 // -------------------------------------------------------------------------------------
-function buildHavocIt(){
+function havoc(){
     wind.width = $(window).width();
     wind.height = $(window).height();
+
+    if(settings.sidebar){
+        var sbContainer = 'body';
+        var sbWrapper = npel.sidebar.replace('.', '');
+        var defaultFrameWidth = 600;
+        var opn = false;
+
+
+        $(sbContainer).append('<div class="'+sbWrapper+' custom-buttons"></div>');
+        $(sbContainer).append('<iframe class="'+sbWrapper+'-iframe sidebar" src="" allowtransparency="true"></iframe>');
+
+        sidebar.forEach(function(item){
+            $('.'+sbWrapper).append('<div class="icon item" data-width="'+item.width+'" data-href="'+item.url+'">'+item.icon+'<i class="fa fa-close dpn" aria-hidden="true"></i></div>');
+        });
+        
+        $('.'+sbWrapper+'-iframe').css({
+            'top': $('.'+sbWrapper).height()+'px'
+        });
+        $('.'+sbWrapper).find('.item').click(function(){
+            toggleIcon($(this).find('.fa'));
+            if(opn==false){
+                $('.'+sbWrapper+'-iframe').css({
+                    'top': $('.'+sbWrapper).height()+'px',
+                    'left': -Math.abs($(this).data('width'))+'px',
+                    'width': $(this).data('width')+'px'
+                });
+                $('.'+sbWrapper+'-iframe').attr('src', $(this).data('href'));
+                var that = $(this);
+                setTimeout(function(){
+                    $('.'+sbWrapper+'-iframe').animate({'left': 0}, 300);
+                    that.addClass('open');
+                    opn = true;
+                }, 500);
+            } else {
+                if($(this).hasClass('open')){
+                    $('.'+sbWrapper+'-iframe').animate({'left': -Math.abs($(this).data('width'))+'px' }, 300, function(){
+                        $('.'+sbWrapper+-'iframe').attr('src', '');
+                    });
+                    opn = false;
+                } else {
+                    $('.'+sbWrapper).find('.item').removeClass('open');
+                    $('.'+sbWrapper+'-iframe').attr('src', $(this).data('href'));
+                    $(this).addClass('open');
+                }
+            }
+        });
+    }
 
     // Board
     $(npel.container).css({
@@ -1351,7 +1426,7 @@ $(document).ready(function(){
         });
     } else {
         // Initialize Desktop board.
-        buildHavocIt();
+        havoc();
     }
 
     // Disable drag inflicted scrolling.
