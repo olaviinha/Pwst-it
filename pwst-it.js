@@ -26,7 +26,7 @@ var settings = {
     allowRichPaste: true,               // Allow pasting rich text.
     allowImagePaste: true,              // Allow pasting images but not rich text.
     allowEmbed: true,                   // Allow turning pasted links to embeds and human-readable hyperlinks.
-    sidebar: true,                      // Display sidebar buttons.
+    sidebar: false,                      // Display sidebar buttons.
 
     // Experimental settings that will likely fuck up your board.
     // You should not touch these unless your up for some development work.
