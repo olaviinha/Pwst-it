@@ -1,6 +1,6 @@
 # Changelog
 
-## 2020-01-14 v0.2.0
+## 2021-01-14 v0.2.0
 ### Improvements:
 - Sidebar: add custom buttons to top-left that open any URLs in a sidebar for quick access.
 
