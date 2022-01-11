@@ -22,7 +22,7 @@ Some basic notes on Pwst-it®
   webapp is not exactly state of the art. If your board is located on a public server, public URL, and you make notes about 
   national security or corporate secrets, it is recommended that you review and up the security game of this app.
 - Log out (close active sessions on other devices) remotely.
-- Saves everything in flat files (and some settings in cookies); no database required.
+- Saves everything in flat files (and some settings in cookies); no database required, easy to copy and backup notes with zero tech-savviness.
 - Supports some basic text formattings in markdown language.
 - Auto-embed youtube, soundcloud, video and audio URLs (like Facebook in the good old days).
 - Auto-hyperlink website URLs to human-readable form using the page <title>.
