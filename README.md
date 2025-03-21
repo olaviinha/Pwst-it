@@ -15,7 +15,7 @@ Some basic notes on Pwst-it®
   resizing.
 - Quickly zoom out to view the entire board and back in wherever you click.
 - Quick x-ray vision to see if you've e.g. accidentally hidden small notes behind some bigger ones.
-- Background, font (few built-in) and some other settings are changeable in the fly as you go.
+- Background, font (few built-in) and some other settings are changeable on the fly as you go.
 - Keyboard shortcuts!
 - Custom buttons to open any URLs in an iframe on a sidebar. In case you want quick access to things like [when your bus leaves](https://github.com/olaviinha/HSL-Stop-Departures) or [how your stocks are doing](https://github.com/olaviinha/FinnStonks).
 - Password-protected. Cookie keeps you logged in forever. You should note, however, that the security of this 
